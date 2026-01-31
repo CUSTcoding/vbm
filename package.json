@@ -1,0 +1,9 @@
+{
+  "name": "vbm",
+  "version": "1.0.0",
+  "description": "Plataforma digital de orientação vocacional e planeamento de carreira para jovens moçambicanos, com questionários interativos e recomendações personalizadas.",
+  "keywords": [],
+  "author": "@CUSTcoding",
+  "license": "ISC",
+  "packageManager": "pnpm@10.28.0"
+}
