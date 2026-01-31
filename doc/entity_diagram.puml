@@ -1,0 +1,60 @@
+@startuml
+
+entity "USER" as User {
+  +id : int [PK]
+  name : string
+  email : string
+  password_hash : string
+  created_at : datetime
+  updated_at : datetime
+}
+
+
+entity "SESSION" as Session {
+  +id : int [PK]
+  session_id : string
+  created_at : datetime
+  updated_at : datetime
+}
+
+entity "QUESTION" as Question {
+  +id : int [PK]
+  text : string
+  category : string
+  created_at : datetime
+  updated_at : datetime
+}
+
+entity "RESPONSE" as Response {
+  +id : int [PK]
+  user_id : int [FK]
+  session_id : int [FK]
+  answers : json
+  created_at : datetime
+}
+
+
+entity "RECOMMENDATION" as Recommendation {
+  +id : int [PK]
+  response_id : int [FK]
+  career_area : string
+  description : string
+  created_at : datetime
+}
+
+entity "COURSE" as Course {
+  +id : int [PK]
+  name : string
+  institution : string
+  area : string
+  description : string
+  link : string
+}
+
+
+User ||--o{ Response : "pode ter"
+Session ||--o{ Response : "pode ter"
+Response ||--o{ Recommendation : "gera"
+Recommendation ||--|{ Course : "aponta para"
+
+@enduml
